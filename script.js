@@ -2,144 +2,125 @@
    script.js — Leadership s Přesahem
    ============================================================ */
 
-(function () {
-  'use strict';
+document.addEventListener('DOMContentLoaded', function () {
+  initReveal();
+  initNavbar();
+  initFaq();
+  initForm();
+});
 
-  /* ----------------------------------------------------------
-     Scroll reveal (IntersectionObserver)
-     ---------------------------------------------------------- */
-  function initReveal() {
-    var elements = document.querySelectorAll('.reveal');
+/* ----------------------------------------------------------
+   Scroll reveal
+   ---------------------------------------------------------- */
+function initReveal() {
+  const elements = document.querySelectorAll('.reveal');
 
-    if (!elements.length) return;
+  if (!elements.length) return;
 
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            setTimeout(function () {
-              entry.target.classList.add('visible');
-            }, 60);
-
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px'
-      }
-    );
-
-    elements.forEach(function (el) {
-      observer.observe(el);
-    });
-  }
-
-  /* ----------------------------------------------------------
-     Navbar — background on scroll
-     ---------------------------------------------------------- */
-  function initNavbar() {
-    var navbar = document.getElementById('navbar');
-    if (!navbar) return;
-
-    function updateNavbar() {
-      if (window.scrollY > 80) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    }
-
-    updateNavbar();
-
-    window.addEventListener('scroll', updateNavbar, { passive: true });
-  }
-
-  /* ----------------------------------------------------------
-     FAQ accordion
-     ---------------------------------------------------------- */
-  function initFaq() {
-    var questions = document.querySelectorAll('.faq-question');
-    if (!questions.length) return;
-
-    questions.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var item = btn.closest('.faq-item');
-        if (!item) return;
-
-        var answer = item.querySelector('.faq-answer');
-        var isOpen = item.classList.contains('open');
-
-        document.querySelectorAll('.faq-item.open').forEach(function (openItem) {
-          openItem.classList.remove('open');
-          var openAnswer = openItem.querySelector('.faq-answer');
-          if (openAnswer) {
-            openAnswer.style.maxHeight = '0';
-          }
-        });
-
-        if (!isOpen && answer) {
-          item.classList.add('open');
-          answer.style.maxHeight = answer.scrollHeight + 'px';
+  const observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
       });
-    });
-  }
-
-  /* ----------------------------------------------------------
-     Form submit (demo handler)
-     ---------------------------------------------------------- */
-  function initForm() {
-    var form = document.getElementById('lead-form');
-    var btn = document.getElementById('form-submit-btn');
-
-    if (!form || !btn) return;
-
-    function validateForm() {
-      var requiredFields = form.querySelectorAll('[required]');
-      var isValid = true;
-
-      requiredFields.forEach(function (field) {
-        field.classList.remove('error');
-
-        if (!field.value || !field.value.trim()) {
-          field.classList.add('error');
-          isValid = false;
-          return;
-        }
-
-        if (field.type === 'email' && !field.value.includes('@')) {
-          field.classList.add('error');
-          isValid = false;
-        }
-      });
-
-      return isValid;
+    },
+    {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
     }
+  );
 
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();
-
-      if (!validateForm()) return;
-
-      btn.textContent = 'Odesíláme…';
-      btn.disabled = true;
-
-      setTimeout(function () {
-        btn.textContent = 'Poptávka odeslána. Ozveme se vám.';
-        btn.classList.add('sent');
-      }, 1200);
-    });
-  }
-
-  /* ----------------------------------------------------------
-     Init on DOMContentLoaded
-     ---------------------------------------------------------- */
-  document.addEventListener('DOMContentLoaded', function () {
-    initReveal();
-    initNavbar();
-    initFaq();
-    initForm();
+  elements.forEach(function (el) {
+    observer.observe(el);
   });
-})();
+}
+
+/* ----------------------------------------------------------
+   Navbar
+   ---------------------------------------------------------- */
+function initNavbar() {
+  const navbar = document.getElementById('navbar');
+  if (!navbar) return;
+
+  function updateNavbar() {
+    if (window.scrollY > 80) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  }
+
+  updateNavbar();
+  window.addEventListener('scroll', updateNavbar, { passive: true });
+}
+
+/* ----------------------------------------------------------
+   FAQ accordion
+   ---------------------------------------------------------- */
+function initFaq() {
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  if (!faqItems.length) return;
+
+  faqItems.forEach(function (item) {
+    const button = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+
+    if (!button || !answer) return;
+
+    button.addEventListener('click', function () {
+      const isOpen = item.classList.contains('open');
+
+      // Zavři všechny ostatní
+      faqItems.forEach(function (otherItem) {
+        if (otherItem === item) return;
+        otherItem.classList.remove('open');
+        const otherAnswer = otherItem.querySelector('.faq-answer');
+        if (otherAnswer) {
+          otherAnswer.style.maxHeight = '0px';
+        }
+      });
+
+      if (!isOpen) {
+        item.classList.add('open');
+        // Změříme skutečnou výšku obsahu
+        answer.style.maxHeight = 'none';
+        const fullHeight = answer.scrollHeight;
+        answer.style.maxHeight = '0px';
+        // Requestem dalšího framu zajistíme plynulou animaci
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            answer.style.maxHeight = fullHeight + 'px';
+          });
+        });
+      } else {
+        item.classList.remove('open');
+        answer.style.maxHeight = '0px';
+      }
+    });
+  });
+}
+
+/* ----------------------------------------------------------
+   Form submit (demo)
+   ---------------------------------------------------------- */
+function initForm() {
+  const form = document.getElementById('lead-form');
+  const btn = document.getElementById('form-submit-btn');
+
+  if (!form || !btn) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    btn.textContent = 'Odesíláme…';
+    btn.disabled = true;
+
+    setTimeout(function () {
+      btn.textContent = 'Poptávka odeslána. Ozveme se vám.';
+      btn.classList.add('sent');
+    }, 1200);
+  });
+}

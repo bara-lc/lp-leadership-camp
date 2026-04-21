@@ -765,7 +765,7 @@ body {
 
 .faq-item {
   border-bottom: 1px solid var(--cream-dark);
-  overflow: hidden;
+  /* OPRAVA: odstraněno overflow: hidden, aby transition fungoval správně */
 }
 
 .faq-item:first-child {
@@ -838,8 +838,9 @@ body {
   border-color: var(--warm-accent);
 }
 
+/* OPRAVA: explicitní 0px místo 0 + overflow: hidden přímo zde */
 .faq-answer {
-  max-height: 0;
+  max-height: 0px;
   overflow: hidden;
   transition: max-height 0.4s ease;
 }
