@@ -5,227 +5,164 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leadership s Přesahem — Legacy Club</title>
-  <meta name="description" content="Výběrový leadership program pro mladé lídry, team leadery a talenty, kteří mají ve firmě růst do větší role.">
+  <title>Leadership s přesahem — Legacy Club</title>
+  <meta name="description" content="Výběrový šestidenní leadership program pro team leadery a talenty, kteří mají ve firmě růst do větší role.">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!--
-    ZMĚNA FONTŮ:
-    — DM Serif Display:  nahrazuje Cormorant Garamond
-      Moderní serif, přirozené česky-přátelské háčky, čistší kresba
-    — Plus Jakarta Sans: nahrazuje Outfit
-      Humanistický sans-serif, příjemnější na delší čtení, méně technický
-  -->
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- ============================================================
+       NAV
+       ============================================================ -->
   <nav id="navbar">
-    <a href="#hero" class="nav-logo">
-      <img
-        src="legacy-club_horizontal_gold-white.png"
-        alt="Legacy Club"
-        class="nav-logo-img"
-        height="28"
-      >
-    </a>
-    <a href="#form" class="nav-cta">Nezávazně poptat místo</a>
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Legacy Club">
+        <img src="legacy-club_horizontal_gold-white.png" alt="Legacy Club" height="26">
+      </a>
+      <div class="nav-links">
+        <a href="#about" class="nav-link">Program</a>
+        <a href="#timeline" class="nav-link">Průběh</a>
+        <a href="#pricing" class="nav-link">Investice</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </div>
+      <a href="#form" class="nav-cta">Poptat vstupní rozhovor</a>
+    </div>
   </nav>
 
+
   <!-- ============================================================
-       HERO — split layout, editorial feel
+       HERO — split 7/5, autentická fotka vpravo
        ============================================================ -->
   <section id="hero">
-
-    <div class="hero-bg-layer hero-bg-radial"  aria-hidden="true"></div>
-    <div class="hero-bg-layer hero-bg-grain"   aria-hidden="true"></div>
-    <div class="hero-bg-layer hero-bg-lines"   aria-hidden="true"></div>
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
 
     <div class="hero-grid">
 
-      <!-- LEVÁ strana -->
       <div class="hero-left">
-
         <p class="hero-eyebrow">
-          <span class="hero-eyebrow-line"></span>
-          Legacy Club
-          <span class="hero-eyebrow-sep">·</span>
-          Výběrový program
+          <span class="eyebrow-mark"></span>
+          Legacy Club&nbsp;&nbsp;·&nbsp;&nbsp;Leadership s přesahem
         </p>
 
         <h1 class="hero-h1">
-          <span class="hero-h1-top">Budoucí lídr.</span>
-          <span class="hero-h1-mid">Připravený<br><em>dřív, než</em></span>
-          <!-- Změna: sans light místo serif — odlehčuje vojenský pocit -->
-          <span class="hero-h1-bot">ho role dostihne.</span>
+          Lídr, kterého firma<br>nepotřebuje přemlouvat.
         </h1>
 
         <p class="hero-sub">
-          Výběrový leadership program pro talenty a team leadery,
-          kteří mají ve firmě růst. Dva bloky 3+3 dny v terénu. Výsledky v praxi.
+          Výběrový šestidenní program pro team leadery a talenty,
+          kteří už dnes nesou odpovědnost — a do větší role rostou.
+        </p>
+
+        <p class="hero-supporting">
+          Dva bloky po třech dnech na Farmě Hůrka. Mezi nimi práce na vlastní situaci z firmy.
         </p>
 
         <div class="hero-actions">
-          <a href="#form" class="hero-cta-primary">
-            Poptat místo
-            <svg class="hero-cta-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <a href="#form" class="btn-primary">
+            Poptat vstupní rozhovor
+            <svg class="btn-arrow" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M3 9h11M10 4l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
-          <a href="#problem" class="hero-cta-ghost">
-            Pro koho je program
-          </a>
+          <a href="#about" class="btn-ghost">Pro koho program je</a>
         </div>
-
-        <!-- Proof čísla — 3+3 místo 6 -->
-        <div class="hero-proof">
-          <div class="hero-proof-item">
-            <span class="hero-proof-num">3<span class="hero-proof-plus">+</span>3</span>
-            <span class="hero-proof-label">dny ve dvou<br>blocích</span>
-          </div>
-          <div class="hero-proof-divider"></div>
-          <div class="hero-proof-item">
-            <span class="hero-proof-num">12</span>
-            <span class="hero-proof-label">účastníků<br>maximum</span>
-          </div>
-          <div class="hero-proof-divider"></div>
-          <div class="hero-proof-item">
-            <span class="hero-proof-num">1</span>
-            <span class="hero-proof-label">farma,<br>mimo kancelář</span>
-          </div>
-        </div>
-
-      </div><!-- /hero-left -->
-
-      <!-- PRAVÁ strana — moderní geometrická kompozice -->
-      <div class="hero-right" aria-hidden="true">
-
-        <!--
-          Nová kompozice:
-          — Střed: logo symbol (LC infinity mark) jako dominanta
-          — Tenké zlaté linky místo organických kroužků
-          — Světlý panel s kontrastem (cream on dark)
-          — Čisté čtvercové karty místo blob shapes
-        -->
-
-        <!-- Středový logo panel — kontrast cream na forest -->
-        <div class="hero-visual-center">
-          <div class="hero-visual-bg"></div>
-          <!-- LC infinity symbol — SVG verze loga marku -->
-          <svg class="hero-visual-symbol" viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Dvě propojené C — evokuje logo mark -->
-            <path d="M42 30 C42 19 34 11 24 11 C14 11 6 19 6 30 C6 41 14 49 24 49 C31 49 37 45 40 39"
-                  stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-            <path d="M42 30 C42 41 50 49 60 49 C70 49 78 41 78 30 C78 19 70 11 60 11 C53 11 47 15 44 21"
-                  stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-            <path d="M62 30 C62 19 70 11 80 11 C90 11 98 19 98 30 C98 41 90 49 80 49 C73 49 67 45 64 39"
-                  stroke="rgba(201,168,76,0.35)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <path d="M62 30 C62 41 54 49 44 49 C34 49 26 41 26 30 C26 19 34 11 44 11 C51 11 57 15 60 21"
-                  stroke="rgba(201,168,76,0.35)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-          </svg>
-          <span class="hero-visual-label">Legacy Club</span>
-        </div>
-
-        <!-- Tenké zlaté dekorativní linky — moderní, ne organické -->
-        <div class="hero-geo hero-geo--top-line"></div>
-        <div class="hero-geo hero-geo--right-line"></div>
-        <div class="hero-geo hero-geo--corner-tl"></div>
-        <div class="hero-geo hero-geo--corner-br"></div>
-
-        <!-- Plovoucí datová karta — terminový blok -->
-        <div class="hero-card hero-card--tl">
-          <span class="hero-card-label">Blok I · červen 2026</span>
-          <span class="hero-card-val">3 dny</span>
-          <span class="hero-card-sub">Farma Hůrka, Písek</span>
-        </div>
-
-        <div class="hero-card hero-card--br">
-          <span class="hero-card-label">Blok II · září 2026</span>
-          <span class="hero-card-val">3 dny</span>
-          <span class="hero-card-sub">Návaznost v praxi</span>
-        </div>
-
-        <!-- Tečkový grid -->
-        <div class="hero-dotgrid">
-          <svg width="110" height="88" viewBox="0 0 110 88">
-            <defs>
-              <pattern id="dots" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse">
-                <circle cx="2" cy="2" r="1" fill="rgba(201,168,76,0.2)"/>
-              </pattern>
-            </defs>
-            <rect width="110" height="88" fill="url(#dots)"/>
-          </svg>
-        </div>
-
-      </div><!-- /hero-right -->
-
-    </div><!-- /hero-grid -->
-
-    <!-- Spodní lišta -->
-    <div class="hero-bar">
-      <div class="hero-param">
-        <span class="hero-param-label">Blok I</span>
-        <span class="hero-param-value">15.–17. června 2026</span>
       </div>
-      <div class="hero-param">
-        <span class="hero-param-label">Blok II</span>
-        <span class="hero-param-value">14.–16. září 2026</span>
+
+      <div class="hero-right">
+        <figure class="hero-photo">
+          <img src="DSC00079.jpg"
+               alt="Účastnice programu v klidném momentu s koněm na Farmě Hůrka"
+               loading="eager"
+               fetchpriority="high">
+          <figcaption class="hero-photo-caption">
+            <span class="hero-photo-label">Blok II&nbsp;&nbsp;·&nbsp;&nbsp;Farma Hůrka</span>
+            <span class="hero-photo-title">Práce s koněm jako zrcadlem vedení.</span>
+          </figcaption>
+        </figure>
       </div>
-      <div class="hero-param">
-        <span class="hero-param-label">Kapacita</span>
-        <span class="hero-param-value">Max. 12 účastníků</span>
-      </div>
-      <div class="hero-param">
-        <span class="hero-param-label">Místo konání</span>
-        <span class="hero-param-value">Farma Hůrka, Písek</span>
-      </div>
+
     </div>
 
+    <!-- Meta pás -->
+    <div class="hero-meta">
+      <div class="hero-meta-inner">
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Blok I</span>
+          <span class="hero-meta-value">15.–17. června 2026</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Blok II</span>
+          <span class="hero-meta-value">14.–16. září 2026</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Místo</span>
+          <span class="hero-meta-value">Farma Hůrka, Písek</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Kapacita</span>
+          <span class="hero-meta-value">Max. 12 účastníků</span>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- PROBLEM -->
+
+  <!-- ============================================================
+       PROBLEM
+       ============================================================ -->
   <section id="problem">
-    <p class="section-label reveal">Proč firmy takové programy hledají</p>
-    <h2 class="section-headline reveal">Schopní lidé často narazí přesně ve chvíli, kdy mají začít nést víc.</h2>
+    <div class="section-inner">
+      <header class="section-header">
+        <p class="section-label reveal">Proč firmy takové programy hledají</p>
+        <h2 class="section-headline reveal">Schopní lidé narazí přesně ve chvíli, kdy mají začít nést víc.</h2>
+      </header>
 
-    <div class="problem-grid">
-      <div class="problem-item reveal">
-        <p class="problem-num">01</p>
-        <p class="problem-text">Jsou schopní, ale v klíčových chvílích stále čekají na potvrzení, zadání nebo rozhodnutí shora.</p>
-      </div>
-
-      <div class="problem-item reveal">
-        <p class="problem-num">02</p>
-        <p class="problem-text">Umí odvést svou práci, ale zatím neuvažují v širším kontextu firmy, týmu a obchodního dopadu.</p>
-      </div>
-
-      <div class="problem-item reveal">
-        <p class="problem-num">03</p>
-        <p class="problem-text">Mají energii, nápady a tah na branku, ale chybí jim stabilita, důslednost a schopnost dotahovat věci do výsledku.</p>
-      </div>
-
-      <div class="problem-item reveal">
-        <p class="problem-num">04</p>
-        <p class="problem-text">Je na nich vidět potenciál. Jenže skutečné leadershipové chování nevzniká z prezentace ani z jednorázového školení. Musí se zažít v praxi.</p>
+      <div class="problem-grid">
+        <div class="problem-item reveal">
+          <p class="problem-num">01</p>
+          <p class="problem-text">Jsou schopní, ale v klíčových chvílích stále čekají na potvrzení, zadání nebo rozhodnutí shora.</p>
+        </div>
+        <div class="problem-item reveal">
+          <p class="problem-num">02</p>
+          <p class="problem-text">Umí odvést svou práci, ale zatím neuvažují v širším kontextu firmy, týmu a obchodního dopadu.</p>
+        </div>
+        <div class="problem-item reveal">
+          <p class="problem-num">03</p>
+          <p class="problem-text">Mají energii, nápady a tah na branku, ale chybí jim stabilita, důslednost a schopnost dotahovat věci do výsledku.</p>
+        </div>
+        <div class="problem-item reveal">
+          <p class="problem-num">04</p>
+          <p class="problem-text">Je na nich vidět potenciál. Skutečné leadershipové chování ale nevzniká z prezentace ani z jednorázového školení. Musí se zažít v praxi.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
+
+  <!-- ============================================================
+       ABOUT — quote + description
+       ============================================================ -->
   <section id="about">
-    <div class="about-inner">
+    <div class="section-inner about-inner">
       <div class="about-left">
-        <p class="about-quote reveal">
-          „Největší chyba není, že talent ve firmě nemáte. Největší chyba je, když ho necháte růst bez vedení, tlaku a odpovědnosti."
-        </p>
+        <p class="section-label reveal">O programu</p>
+        <blockquote class="about-quote reveal">
+          Největší chyba není, že talent ve firmě nemáte.<br>
+          <span class="about-quote-accent">Chyba je, když ho necháte růst bez vedení a tlaku na odpovědnosti.</span>
+        </blockquote>
       </div>
 
       <div class="about-right">
-        <p class="section-label reveal">O programu</p>
         <p class="about-desc reveal">
-          Leadership s přesahem je výběrový rozvojový program pro lidi, kteří mají ve firmě růst do větší role — nebo ji už dostali a potřebují ji unést s větší jistotou, zralostí a dopadem.<br><br>
+          Leadership s přesahem je výběrový rozvojový program pro lidi, kteří mají ve firmě růst do větší role — nebo ji už dostali a potřebují ji unést s větší jistotou, zralostí a dopadem.
+        </p>
+        <p class="about-desc reveal">
           Nejde o klasické školení ani motivační workshop. Pracujeme v malé skupině, na reálných situacích z praxe a s přímou zpětnou vazbou. Účastníci si neodnášejí jen inspiraci, ale konkrétní posun v tom, jak přemýšlí, rozhodují a vedou.
         </p>
 
@@ -240,172 +177,184 @@
     </div>
   </section>
 
-  <!-- EXPERIENCE — hlavní fotografie -->
+
+  <!-- ============================================================
+       EXPERIENCE — full-bleed fotka + text
+       ============================================================ -->
   <section id="experience">
     <div class="experience-inner">
-
-      <div class="experience-image-wrap reveal">
-        <img
-          src="DSC00079.jpg"
-          alt="Účastnice programu při práci s koněm na Farmě Hůrka"
-          class="experience-img"
-          loading="lazy"
-        >
-      </div>
+      <figure class="experience-image reveal">
+        <img src="DSC00057.jpg"
+             alt="Lektor programu při práci s účastníky na Farmě Hůrka"
+             loading="lazy">
+      </figure>
 
       <div class="experience-text">
         <p class="section-label reveal">Prostředí, které mění perspektivu</p>
         <h2 class="experience-headline reveal">Program záměrně probíhá mimo kancelář.</h2>
         <p class="experience-desc reveal">
-          Na Farmě Hůrka v Písku pracujete s reálnými situacemi, přímou zpětnou vazbou a prostředím, které neumožňuje skrýt se za rutinu. Šest dní v přírodě, v malé skupině a pod vedením zkušených facilitátorů — to je prostor, kde se leadershipové chování skutečně zažije, ne jen vyslechne.
+          Na Farmě Hůrka v Písku pracujete s reálnými situacemi, přímou zpětnou vazbou a prostředím, které neumožňuje skrýt se za rutinu. Šest dní v přírodě, v malé skupině a pod vedením zkušených facilitátorů — prostor, kde se leadershipové chování skutečně zažije, ne jen vyslechne.
         </p>
-        <a href="#form" class="experience-cta reveal">Nezávazně poptat místo</a>
+        <a href="#form" class="btn-ghost btn-ghost--dark reveal">Poptat vstupní rozhovor →</a>
       </div>
-
     </div>
   </section>
 
-  <!-- CURRICULUM -->
+
+  <!-- ============================================================
+       CURRICULUM
+       ============================================================ -->
   <section id="curriculum">
-    <p class="section-label reveal">Co program rozvíjí</p>
-    <h2 class="section-headline reveal">Kompetence, které firmy potřebují. A které se nedají získat jen z prezentace.</h2>
+    <div class="section-inner">
+      <header class="section-header">
+        <p class="section-label reveal">Co program rozvíjí</p>
+        <h2 class="section-headline reveal">Kompetence, které firmy potřebují. A které se nedají získat z prezentace.</h2>
+      </header>
 
-    <div class="curriculum-grid">
-      <div class="curriculum-item reveal">
-        <div class="curriculum-icon">I</div>
-        <h3 class="curriculum-title">Práce se sebou</h3>
-        <p class="curriculum-desc">Jak fungovat pod tlakem, unést zátěž, pracovat s emocemi a neztrácet stabilitu ve vypjatých situacích.</p>
-      </div>
-
-      <div class="curriculum-item reveal">
-        <div class="curriculum-icon">II</div>
-        <h3 class="curriculum-title">Komunikace a vedení lidí</h3>
-        <p class="curriculum-desc">Jak vést rozhovory, které posouvají. Jak dávat zpětnou vazbu, nastavovat hranice a získávat respekt bez přetlačování.</p>
-      </div>
-
-      <div class="curriculum-item reveal">
-        <div class="curriculum-icon">III</div>
-        <h3 class="curriculum-title">Rozhodování v nejistotě</h3>
-        <p class="curriculum-desc">Jak se rozhodovat, když nemáte všechna data, čas běží a dopad rozhodnutí je větší než dřív.</p>
-      </div>
-
-      <div class="curriculum-item reveal">
-        <div class="curriculum-icon">IV</div>
-        <h3 class="curriculum-title">Orientace v číslech a dopadech</h3>
-        <p class="curriculum-desc">Jak přemýšlet nad výsledkem, náklady a souvislostmi tak, aby člověk neřešil jen úkol, ale i dopad na firmu.</p>
-      </div>
-
-      <div class="curriculum-item reveal">
-        <div class="curriculum-icon">V</div>
-        <h3 class="curriculum-title">Adaptabilita a změna</h3>
-        <p class="curriculum-desc">Jak reagovat na změny bez chaosu. Jak zůstat použitelným lídrem i ve chvíli, kdy se podmínky rychle mění.</p>
+      <div class="curriculum-grid">
+        <div class="curriculum-item reveal">
+          <span class="curriculum-num">I</span>
+          <h3 class="curriculum-title">Práce se sebou</h3>
+          <p class="curriculum-desc">Jak fungovat pod tlakem, unést zátěž, pracovat s emocemi a neztrácet stabilitu ve vypjatých situacích.</p>
+        </div>
+        <div class="curriculum-item reveal">
+          <span class="curriculum-num">II</span>
+          <h3 class="curriculum-title">Komunikace a vedení lidí</h3>
+          <p class="curriculum-desc">Jak vést rozhovory, které posouvají. Jak dávat zpětnou vazbu, nastavovat hranice a získávat respekt bez přetlačování.</p>
+        </div>
+        <div class="curriculum-item reveal">
+          <span class="curriculum-num">III</span>
+          <h3 class="curriculum-title">Rozhodování v nejistotě</h3>
+          <p class="curriculum-desc">Jak se rozhodovat, když nemáte všechna data, čas běží a dopad rozhodnutí je větší než dřív.</p>
+        </div>
+        <div class="curriculum-item reveal">
+          <span class="curriculum-num">IV</span>
+          <h3 class="curriculum-title">Orientace v číslech a dopadech</h3>
+          <p class="curriculum-desc">Jak přemýšlet nad výsledkem, náklady a souvislostmi tak, aby člověk neřešil jen úkol, ale i dopad na firmu.</p>
+        </div>
+        <div class="curriculum-item reveal">
+          <span class="curriculum-num">V</span>
+          <h3 class="curriculum-title">Adaptabilita a změna</h3>
+          <p class="curriculum-desc">Jak reagovat na změny bez chaosu. Jak zůstat použitelným lídrem i ve chvíli, kdy se podmínky rychle mění.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- TIMELINE -->
+
+  <!-- ============================================================
+       TIMELINE
+       ============================================================ -->
   <section id="timeline">
-    <p class="section-label reveal">Jak program probíhá</p>
-    <h2 class="section-headline reveal">Jasný proces od výběru účastníka až po přenos do praxe.</h2>
+    <div class="section-inner">
+      <header class="section-header">
+        <p class="section-label reveal">Jak program probíhá</p>
+        <h2 class="section-headline reveal">Jasný proces od výběru účastníka až po přenos do praxe.</h2>
+      </header>
 
-    <div class="timeline-list">
-      <div class="timeline-item reveal">
-        <p class="timeline-num">01</p>
-        <div>
-          <h3 class="timeline-content-title">Vstupní rozhovor</h3>
-          <p class="timeline-content-desc">S každým účastníkem probíhá krátký individuální rozhovor. Ověříme, jestli je program pro daného člověka i situaci ve firmě skutečně vhodný. Když nebude, řekneme to otevřeně.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item reveal">
-        <p class="timeline-num">02</p>
-        <div>
-          <h3 class="timeline-content-title">Blok I — Farma Hůrka (15.–17. 6. 2026)</h3>
-          <p class="timeline-content-desc">Tři dny intenzivní práce v malé skupině. Silný základ, první konfrontace se stylem vedení, rozhodováním a osobní odpovědností. Účast po celou dobu je podmínkou programu.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item reveal">
-        <p class="timeline-num">03</p>
-        <div>
-          <h3 class="timeline-content-title">Přenos do praxe mezi bloky</h3>
-          <p class="timeline-content-desc">Účastníci pracují na konkrétní výzvě ze svého pracovního prostředí. Součástí jsou individuální i skupinová online setkání, která pomáhají udržet posun i mimo samotný program.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item reveal">
-        <p class="timeline-num">04</p>
-        <div>
-          <h3 class="timeline-content-title">Blok II — Farma Hůrka (14.–16. 9. 2026)</h3>
-          <p class="timeline-content-desc">Navazujeme na reálné zkušenosti z praxe. Pracujeme s tím, co se mezi bloky podařilo, co zaskřípalo a kde je potřeba jít hlouběji.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item reveal">
-        <p class="timeline-num">05</p>
-        <div>
-          <h3 class="timeline-content-title">Konference mladých lídrů</h3>
-          <p class="timeline-content-desc">15. října 2026 v Praze. Součástí programu je vstup na konferenci, kde se účastníci potkají s dalšími lidmi, kteří řeší podobný růst a odpovědnost.</p>
-        </div>
-      </div>
+      <ol class="timeline-list">
+        <li class="timeline-item reveal">
+          <span class="timeline-num">01</span>
+          <div class="timeline-content">
+            <h3 class="timeline-title">Vstupní rozhovor</h3>
+            <p class="timeline-desc">S každým účastníkem probíhá krátký individuální rozhovor. Ověříme, jestli je program pro daného člověka i situaci ve firmě skutečně vhodný. Když nebude, řekneme to otevřeně.</p>
+          </div>
+        </li>
+        <li class="timeline-item reveal">
+          <span class="timeline-num">02</span>
+          <div class="timeline-content">
+            <h3 class="timeline-title">Blok I&nbsp;&nbsp;·&nbsp;&nbsp;Farma Hůrka&nbsp;&nbsp;·&nbsp;&nbsp;15.–17. 6. 2026</h3>
+            <p class="timeline-desc">Tři dny intenzivní práce v malé skupině. Silný základ, první konfrontace se stylem vedení, rozhodováním a osobní odpovědností. Účast po celou dobu je podmínkou programu.</p>
+          </div>
+        </li>
+        <li class="timeline-item reveal">
+          <span class="timeline-num">03</span>
+          <div class="timeline-content">
+            <h3 class="timeline-title">Přenos do praxe mezi bloky</h3>
+            <p class="timeline-desc">Účastníci pracují na konkrétní výzvě ze svého pracovního prostředí. Součástí jsou individuální i skupinová online setkání, která pomáhají udržet posun i mimo samotný program.</p>
+          </div>
+        </li>
+        <li class="timeline-item reveal">
+          <span class="timeline-num">04</span>
+          <div class="timeline-content">
+            <h3 class="timeline-title">Blok II&nbsp;&nbsp;·&nbsp;&nbsp;Farma Hůrka&nbsp;&nbsp;·&nbsp;&nbsp;14.–16. 9. 2026</h3>
+            <p class="timeline-desc">Navazujeme na reálné zkušenosti z praxe. Pracujeme s tím, co se mezi bloky podařilo, co zaskřípalo a kde je potřeba jít hlouběji.</p>
+          </div>
+        </li>
+        <li class="timeline-item reveal">
+          <span class="timeline-num">05</span>
+          <div class="timeline-content">
+            <h3 class="timeline-title">Konference mladých lídrů&nbsp;&nbsp;·&nbsp;&nbsp;15. 10. 2026&nbsp;&nbsp;·&nbsp;&nbsp;Praha</h3>
+            <p class="timeline-desc">Součástí programu je vstup na konferenci, kde se účastníci potkají s dalšími lidmi, kteří řeší podobný růst a odpovědnost.</p>
+          </div>
+        </li>
+      </ol>
     </div>
   </section>
 
-  <!-- PHOTO STRIP -->
+
+  <!-- ============================================================
+       PHOTO STRIP
+       ============================================================ -->
   <div class="photo-strip">
-    <div class="photo-strip-item">
-      <img src="DSC00031.jpg" alt="Skupinová práce a diskuse při leadership programu" loading="lazy">
+    <div class="photo-strip-item reveal">
+      <img src="DSC00031.jpg" alt="Skupinová diskuse účastníků programu u stolu" loading="lazy">
     </div>
-    <div class="photo-strip-item">
-      <img src="DSC00057.jpg" alt="Lektor při práci s účastníky na Farmě Hůrka" loading="lazy">
+    <div class="photo-strip-item reveal">
+      <img src="DSC00053.jpg" alt="Individuální práce s lektorkou v přírodě" loading="lazy">
     </div>
-    <div class="photo-strip-item">
-      <img src="DSC00088.jpg" alt="Účastníci při přímé zkušenosti s koňmi" loading="lazy">
+    <div class="photo-strip-item reveal">
+      <img src="DSC00088.jpg" alt="Účastníci při přímé zkušenosti s koněm" loading="lazy">
     </div>
   </div>
 
-  <!-- RESULTS -->
+
+  <!-- ============================================================
+       RESULTS
+       ============================================================ -->
   <section id="results">
-    <p class="section-label reveal">Co z toho firma získá</p>
-    <h2 class="section-headline reveal">Ne další certifikát do šuplíku. Ale člověka, o kterého se můžete opřít víc než dnes.</h2>
+    <div class="section-inner">
+      <header class="section-header">
+        <p class="section-label reveal">Co z programu vzniká</p>
+        <h2 class="section-headline reveal">Ne další certifikát do šuplíku. Člověk, o kterého se můžete opřít víc než dnes.</h2>
+      </header>
 
-    <div class="results-grid">
-      <div class="results-col reveal">
-        <p class="results-col-label">U účastníka</p>
-        <ul class="results-list">
-          <li>Větší samostatnost v rozhodování a menší potřeba neustálého vedení</li>
-          <li>Schopnost přemýšlet v širším kontextu týmu, firmy a výsledku</li>
-          <li>Vyšší odpovědnost za dokončení věcí, ne jen za jejich rozpracování</li>
-          <li>Jistější komunikace, větší stabilita a zralejší leadershipové chování</li>
-        </ul>
+      <div class="results-grid">
+        <div class="results-col reveal">
+          <p class="results-col-label">U účastníka</p>
+          <ul class="results-list">
+            <li>Větší samostatnost v rozhodování a menší potřeba neustálého vedení</li>
+            <li>Schopnost přemýšlet v širším kontextu týmu, firmy a výsledku</li>
+            <li>Vyšší odpovědnost za dokončení věcí, ne jen za jejich rozpracování</li>
+            <li>Jistější komunikace, větší stabilita a zralejší leadershipové chování</li>
+          </ul>
+        </div>
+        <div class="results-col reveal">
+          <p class="results-col-label">Pro firmu</p>
+          <ul class="results-list">
+            <li>Silnější interní pipeline lidí pro vedoucí a klíčové role</li>
+            <li>Menší tlak na majitele, ředitele a seniorní manažery v každodenním řízení</li>
+            <li>Lepší rozhodování u lidí, kteří mají nést větší odpovědnost</li>
+            <li>Rozvoj, který se propisuje do praxe, ne jen do dobrého pocitu po školení</li>
+          </ul>
+        </div>
       </div>
-
-      <div class="results-col reveal">
-        <p class="results-col-label">Pro firmu</p>
-        <ul class="results-list">
-          <li>Silnější interní pipeline lidí pro vedoucí a klíčové role</li>
-          <li>Menší tlak na majitele, ředitele a seniorní manažery v každodenním řízení</li>
-          <li>Lepší rozhodování u lidí, kteří mají nést větší odpovědnost</li>
-          <li>Rozvoj, který se propisuje do praxe, ne jen do dobrého pocitu po školení</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="results-cta-wrap reveal">
-      <a href="#form" class="btn-forest">Nezávazně poptat místo →</a>
     </div>
   </section>
 
-  <!-- PRICING -->
+
+  <!-- ============================================================
+       PRICING
+       ============================================================ -->
   <section id="pricing">
-    <div class="pricing-inner">
+    <div class="section-inner pricing-inner">
       <div class="pricing-left">
         <p class="section-label reveal">Investice</p>
-        <p class="pricing-price reveal">30 000 Kč</p>
+        <p class="pricing-price reveal">30&thinsp;000&nbsp;Kč</p>
         <p class="pricing-price-note reveal">bez DPH za účastníka</p>
 
-        <p class="pricing-value-line reveal">
-          6 dní programu&thinsp;·&thinsp;2 pobytové bloky&thinsp;·&thinsp;ubytování a stravování v ceně&thinsp;·&thinsp;individuální koučink&thinsp;·&thinsp;konference
+        <p class="pricing-summary reveal">
+          6 dní programu&nbsp;·&nbsp;2 pobytové bloky&nbsp;·&nbsp;ubytování a stravování v ceně&nbsp;·&nbsp;individuální koučink&nbsp;·&nbsp;konference
         </p>
 
         <p class="pricing-includes-label reveal">V ceně je zahrnuto</p>
@@ -415,7 +364,7 @@
           <li>Vstupní individuální rozhovor</li>
           <li>Individuální a skupinová práce mezi bloky</li>
           <li>Závěrečné vyhodnocení programu</li>
-          <li>Vstup na konferenci mladých lídrů 15. 10. 2026 v Praze</li>
+          <li>Vstup na konferenci mladých lídrů 15.&nbsp;10.&nbsp;2026 v Praze</li>
           <li>Provázení zkušeným týmem Legacy Clubu</li>
         </ul>
       </div>
@@ -423,166 +372,195 @@
       <div class="pricing-right">
         <p class="section-label reveal">Termíny</p>
 
-        <div class="pricing-program-note reveal">
-          Program probíhá ve dvou navazujících blocích. Účastník absolvuje oba termíny v rámci jedné ceny.
-        </div>
+        <p class="pricing-note reveal">Program probíhá ve dvou navazujících blocích. Účastník absolvuje oba termíny v rámci jedné ceny.</p>
 
         <div class="pricing-terms">
           <div class="pricing-term reveal">
-            <p class="pricing-term-badge">Leadership s přesahem 2026</p>
-            <p class="pricing-term-date">15.–17. června 2026</p>
-            <p class="pricing-term-place">Farma Hůrka, Písek · blok I</p>
+            <span class="pricing-term-label">Blok I</span>
+            <span class="pricing-term-date">15.–17. června 2026</span>
+            <span class="pricing-term-place">Farma Hůrka, Písek</span>
           </div>
-
           <div class="pricing-term reveal">
-            <p class="pricing-term-badge">Leadership s přesahem 2026</p>
-            <p class="pricing-term-date">14.–16. září 2026</p>
-            <p class="pricing-term-place">Farma Hůrka, Písek · blok II</p>
+            <span class="pricing-term-label">Blok II</span>
+            <span class="pricing-term-date">14.–16. září 2026</span>
+            <span class="pricing-term-place">Farma Hůrka, Písek</span>
           </div>
-
-          <div class="pricing-term pricing-term--highlight reveal">
-            <p class="pricing-term-badge">Bonus pro absolventy</p>
-            <p class="pricing-term-date">15. října 2026</p>
-            <p class="pricing-term-place">Praha · konference mladých lídrů v ceně</p>
+          <div class="pricing-term pricing-term--accent reveal">
+            <span class="pricing-term-label">Bonus pro absolventy</span>
+            <span class="pricing-term-date">15. října 2026</span>
+            <span class="pricing-term-place">Konference mladých lídrů · Praha</span>
           </div>
         </div>
 
-        <a href="#form" class="pricing-main-cta reveal">Nezávazně poptat místo</a>
+        <a href="#form" class="btn-primary btn-primary--light reveal">
+          Poptat vstupní rozhovor
+          <svg class="btn-arrow" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <path d="M3 9h11M10 4l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
+
+  <!-- ============================================================
+       FAQ
+       ============================================================ -->
   <section id="faq">
-    <div class="faq-inner">
-      <p class="section-label reveal">Časté otázky</p>
-      <h2 class="section-headline reveal">Odpovědi na to, co firmy a účastníci řeší nejčastěji.</h2>
+    <div class="section-inner faq-inner">
+      <header class="section-header">
+        <p class="section-label reveal">Časté otázky</p>
+        <h2 class="section-headline reveal">Odpovědi na to, co firmy a účastníci řeší nejčastěji.</h2>
+      </header>
 
       <div class="faq-list">
         <div class="faq-item reveal">
-          <button class="faq-question">
-            Pro koho je program nejvhodnější?
-            <span class="faq-toggle"></span>
+          <button class="faq-question" type="button">
+            <span>Pro koho je program nejvhodnější?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
           </button>
-          <div class="faq-answer">
-            <p class="faq-answer-inner">Pro mladé lídry, team leadery, projektové manažery a talenty, kteří už dnes nesou část odpovědnosti nebo do ní ve firmě dorůstají. Typicky jde o lidi, u kterých nechcete čekat, až je větší role zaskočí.</p>
-          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            Pro mladé lídry, team leadery, projektové manažery a talenty, kteří už dnes nesou část odpovědnosti nebo do ní ve firmě dorůstají. Typicky jde o lidi, u kterých nechcete čekat, až je větší role zaskočí.
+          </div></div>
         </div>
 
         <div class="faq-item reveal">
-          <button class="faq-question">
-            Je program určený spíš pro firmy, nebo i pro jednotlivce?
-            <span class="faq-toggle"></span>
+          <button class="faq-question" type="button">
+            <span>Je program určený spíš pro firmy, nebo i pro jednotlivce?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
           </button>
-          <div class="faq-answer">
-            <p class="faq-answer-inner">Obojí je možné. Nejčastěji místo poptává firma pro svého člověka, ale přihlásit se může i jednotlivec. V obou případech probíhá vstupní rozhovor, ve kterém společně ověříme vhodnost programu.</p>
-          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            Obojí je možné. Nejčastěji místo poptává firma pro svého člověka, ale přihlásit se může i jednotlivec. V obou případech probíhá vstupní rozhovor, ve kterém společně ověříme vhodnost programu.
+          </div></div>
         </div>
 
         <div class="faq-item reveal">
-          <button class="faq-question">
-            V čem se program liší od běžného leadership školení?
-            <span class="faq-toggle"></span>
+          <button class="faq-question" type="button">
+            <span>V čem se program liší od běžného leadership školení?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
           </button>
-          <div class="faq-answer">
-            <p class="faq-answer-inner">Není postavený na pasivním poslouchání ani na univerzálních modelech. Pracuje se v malé skupině, s reálnými situacemi z praxe a s přímou zpětnou vazbou. Důležitou částí programu je i období mezi bloky, kdy účastník přenáší posun do své každodenní práce.</p>
-          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            Není postavený na pasivním poslouchání ani na univerzálních modelech. Pracuje se v malé skupině, s reálnými situacemi z praxe a s přímou zpětnou vazbou. Důležitou částí programu je období mezi bloky, kdy účastník přenáší posun do své každodenní práce.
+          </div></div>
         </div>
 
         <div class="faq-item reveal">
-          <button class="faq-question">
-            Proč program probíhá právě na Farmě Hůrka?
-            <span class="faq-toggle"></span>
+          <button class="faq-question" type="button">
+            <span>Proč program probíhá právě na Farmě Hůrka?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
           </button>
-          <div class="faq-answer">
-            <p class="faq-answer-inner">Protože prostředí mimo kancelář pomáhá vystoupit z provozního režimu a skutečně pracovat na sobě i na svém stylu vedení. Farma Hůrka nabízí klid, zázemí i prostor pro intenzivní skupinovou práci bez rušivých vlivů běžného pracovního dne.</p>
-          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            Protože prostředí mimo kancelář pomáhá vystoupit z provozního režimu a skutečně pracovat na sobě i na svém stylu vedení. Farma Hůrka nabízí klid, zázemí i prostor pro intenzivní skupinovou práci bez rušivých vlivů běžného pracovního dne.
+          </div></div>
         </div>
 
         <div class="faq-item reveal">
-          <button class="faq-question">
-            Co přesně se děje mezi prvním a druhým blokem?
-            <span class="faq-toggle"></span>
+          <button class="faq-question" type="button">
+            <span>Co přesně se děje mezi prvním a druhým blokem?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
           </button>
-          <div class="faq-answer">
-            <p class="faq-answer-inner">Účastník pracuje na konkrétní výzvě nebo oblasti ze své praxe. Má oporu v individuálních i skupinových online setkáních. Díky tomu se program neuzavírá do několika dnů na místě, ale pokračuje v reálném pracovním prostředí.</p>
-          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            Účastník pracuje na konkrétní výzvě nebo oblasti ze své praxe. Má oporu v individuálních i skupinových online setkáních. Díky tomu se program neuzavírá do několika dnů na místě, ale pokračuje v reálném pracovním prostředí.
+          </div></div>
         </div>
 
         <div class="faq-item reveal">
-          <button class="faq-question">
-            Je cena 30 000 Kč konečná?
-            <span class="faq-toggle"></span>
+          <button class="faq-question" type="button">
+            <span>Je cena 30&nbsp;000&nbsp;Kč konečná?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
           </button>
-          <div class="faq-answer">
-            <p class="faq-answer-inner">Ano, cena je 30 000 Kč bez DPH za účastníka a zahrnuje oba bloky programu, ubytování, stravování, vstupní rozhovor, práci mezi bloky, závěrečné vyhodnocení i vstup na konferenci mladých lídrů. Zvlášť se hradí pouze doprava.</p>
-          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            Ano, cena je 30&nbsp;000&nbsp;Kč bez DPH za účastníka a zahrnuje oba bloky programu, ubytování, stravování, vstupní rozhovor, práci mezi bloky, závěrečné vyhodnocení i vstup na konferenci mladých lídrů. Zvlášť se hradí pouze doprava.
+          </div></div>
         </div>
 
         <div class="faq-item reveal">
-          <button class="faq-question">
-            Co když zjistíme, že program pro daného člověka není vhodný?
-            <span class="faq-toggle"></span>
+          <button class="faq-question" type="button">
+            <span>Co když zjistíme, že program pro daného člověka není vhodný?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
           </button>
-          <div class="faq-answer">
-            <p class="faq-answer-inner">Právě proto děláme vstupní rozhovor ještě před potvrzením účasti. Pokud vyhodnotíme, že program v danou chvíli není správný krok, řekneme to otevřeně. Smyslem není naplnit kapacitu za každou cenu, ale obsadit program správnými lidmi.</p>
-          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            Právě proto děláme vstupní rozhovor ještě před potvrzením účasti. Pokud vyhodnotíme, že program v danou chvíli není správný krok, řekneme to otevřeně. Smyslem není naplnit kapacitu za každou cenu, ale obsadit program správnými lidmi.
+          </div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FORM -->
+
+  <!-- ============================================================
+       FORM
+       ============================================================ -->
   <section id="form">
-    <div class="form-inner">
+    <div class="section-inner form-inner">
       <div class="form-left">
         <p class="section-label reveal">Nezávazná poptávka</p>
-        <h2 class="form-headline reveal">Zjistěte, jestli je program správný právě pro vašeho člověka.</h2>
+        <h2 class="form-headline reveal">Zjistěte, jestli je program vhodný pro vašeho člověka.</h2>
         <p class="form-desc reveal">
-          Po odeslání formuláře se vám ozveme a domluvíme krátký vstupní hovor. Projdeme vaši situaci, profil účastníka i to, jestli program dává smysl právě teď.<br><br>
+          Po odeslání formuláře se vám ozveme a domluvíme krátký vstupní hovor. Projdeme vaši situaci, profil účastníka i to, jestli program dává smysl právě teď.
+        </p>
+        <p class="form-desc form-desc--muted reveal">
           Odesláním formuláře nevzniká závazná objednávka. Kapacita programu je omezená na 12 účastníků.
         </p>
+
+        <dl class="form-contact reveal">
+          <div>
+            <dt>E-mail</dt>
+            <dd><a href="mailto:info@legacyclub.cz">info@legacyclub.cz</a></dd>
+          </div>
+          <div>
+            <dt>Telefon</dt>
+            <dd><a href="tel:+420000000000">+420&nbsp;000&nbsp;000&nbsp;000</a></dd>
+          </div>
+        </dl>
       </div>
 
       <div class="form-right reveal">
         <form id="lead-form" novalidate>
-          <div class="form-field">
-            <label class="form-label" for="name">Jméno a příjmení</label>
-            <input id="name" name="name" type="text" class="form-input" placeholder="Vaše jméno" required>
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="name">Jméno a příjmení</label>
+              <input id="name" name="name" type="text" class="form-input" placeholder="Vaše jméno" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="company">Firma</label>
+              <input id="company" name="company" type="text" class="form-input" placeholder="Název firmy" required>
+            </div>
           </div>
 
-          <div class="form-field">
-            <label class="form-label" for="company">Firma</label>
-            <input id="company" name="company" type="text" class="form-input" placeholder="Název firmy" required>
-          </div>
-
-          <div class="form-field">
-            <label class="form-label" for="email">Pracovní e-mail</label>
-            <input id="email" name="email" type="email" class="form-input" placeholder="vas@firma.cz" required>
-          </div>
-
-          <div class="form-field">
-            <label class="form-label" for="phone">Telefon</label>
-            <input id="phone" name="phone" type="tel" class="form-input" placeholder="+420 000 000 000">
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="email">Pracovní e-mail</label>
+              <input id="email" name="email" type="email" class="form-input" placeholder="vas@firma.cz" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="phone">Telefon</label>
+              <input id="phone" name="phone" type="tel" class="form-input" placeholder="+420 000 000 000">
+            </div>
           </div>
 
           <div class="form-field">
             <label class="form-label" for="interest">Koho chcete do programu přihlásit</label>
-            <select id="interest" name="interest" class="form-input" required>
-              <option value="" disabled selected>Vyberte možnost</option>
-              <option>Přihlašuji sebe</option>
-              <option>Přihlašuji kolegu / zaměstnance</option>
-              <option>Zatím jen zjišťuji informace</option>
-            </select>
+            <div class="select-wrap">
+              <select id="interest" name="interest" class="form-input" required>
+                <option value="" disabled selected>Vyberte možnost</option>
+                <option>Přihlašuji sebe</option>
+                <option>Přihlašuji kolegu / zaměstnance</option>
+                <option>Zatím jen zjišťuji informace</option>
+              </select>
+            </div>
           </div>
 
           <div class="form-field">
-            <label class="form-label" for="message">Co aktuálně řešíte (nepovinné)</label>
-            <textarea id="message" name="message" class="form-input" placeholder="Stručně popište situaci, roli člověka nebo důvod, proč program zvažujete..."></textarea>
+            <label class="form-label" for="message">Co aktuálně řešíte <span class="form-label-opt">(nepovinné)</span></label>
+            <textarea id="message" name="message" class="form-input" placeholder="Stručně popište situaci, roli člověka nebo důvod, proč program zvažujete…" rows="4"></textarea>
           </div>
 
-          <button type="submit" class="form-submit" id="form-submit-btn">
-            Odeslat poptávku →
+          <button type="submit" class="btn-primary btn-primary--full" id="form-submit-btn">
+            Odeslat poptávku
+            <svg class="btn-arrow" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M3 9h11M10 4l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </button>
 
           <p class="form-note">Ozveme se vám co nejdříve a domluvíme další krok.</p>
@@ -591,10 +569,20 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
   <footer>
-    <p class="footer-text">Leadership s přesahem · Legacy Club · Farma Hůrka, Písek · 2026</p>
-    <p class="footer-text">Program organizuje Legacy Club s.r.o. ve spolupráci s Týmovou Akademií s.r.o.</p>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="legacy-club_horizontal_gold-white.png" alt="Legacy Club" height="22">
+        <p class="footer-tag">Leadership s přesahem · 2026</p>
+      </div>
+      <p class="footer-meta">
+        Farma Hůrka, Písek&nbsp;&nbsp;·&nbsp;&nbsp;Program organizuje Legacy&nbsp;Club&nbsp;s.r.o. ve spolupráci s Týmovou&nbsp;Akademií&nbsp;s.r.o.
+      </p>
+    </div>
   </footer>
 
   <script src="script.js"></script>

@@ -1,98 +1,191 @@
 /* ============================================================
-   script.js — Leadership s Přesahem
+   Legacy Club — script.js
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
-  initReveal();
   initNavbar();
+  initReveal();
+  initHeroIntro();
+  initHeroParallax();
   initFaq();
   initForm();
+  initSmoothAnchors();
 });
 
+
 /* ----------------------------------------------------------
-   Scroll reveal
+   Navbar — scroll state
+   ---------------------------------------------------------- */
+function initNavbar() {
+  var navbar = document.getElementById('navbar');
+  if (!navbar) return;
+
+  var ticking = false;
+  function update() {
+    if (window.scrollY > 48) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+    ticking = false;
+  }
+  update();
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
+}
+
+
+/* ----------------------------------------------------------
+   Reveal on scroll
    ---------------------------------------------------------- */
 function initReveal() {
-  const elements = document.querySelectorAll('.reveal');
+  var els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('visible'); });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.14,
+    rootMargin: '0px 0px -60px 0px'
+  });
+
+  els.forEach(function (el) { observer.observe(el); });
+
+  // Fallback: pokud je něco ve viewportu po 2.5s a observer to nezachytil,
+  // donutit do visible (chrání před edge-case)
+  setTimeout(function () {
+    document.querySelectorAll('.reveal:not(.visible)').forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) {
+        el.classList.add('visible');
+      }
+    });
+  }, 2500);
+}
+
+
+/* ----------------------------------------------------------
+   Hero — staggered entry animation
+   ---------------------------------------------------------- */
+function initHeroIntro() {
+  var selectors = [
+    '.hero-eyebrow',
+    '.hero-h1',
+    '.hero-sub',
+    '.hero-supporting',
+    '.hero-actions',
+    '.hero-photo',
+    '.hero-meta'
+  ];
+
+  var elements = selectors
+    .map(function (s) { return document.querySelector(s); })
+    .filter(Boolean);
 
   if (!elements.length) return;
 
-  const observer = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
-    }
-  );
-
+  // Nastav počáteční stav
   elements.forEach(function (el) {
-    observer.observe(el);
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(18px)';
+    el.style.transition = 'opacity 900ms cubic-bezier(0.22, 1, 0.36, 1), transform 900ms cubic-bezier(0.22, 1, 0.36, 1)';
+    el.style.willChange = 'opacity, transform';
+  });
+
+  // Spusť staggered s malým delayem, aby font stihl načíst
+  window.requestAnimationFrame(function () {
+    setTimeout(function () {
+      elements.forEach(function (el, i) {
+        setTimeout(function () {
+          el.style.opacity = '';
+          el.style.transform = '';
+        }, i * 110);
+      });
+
+      // Po dokončení odstraň inline styly
+      setTimeout(function () {
+        elements.forEach(function (el) {
+          el.style.transition = '';
+          el.style.willChange = '';
+        });
+      }, 1400 + elements.length * 110);
+    }, 80);
   });
 }
 
-/* ----------------------------------------------------------
-   Navbar
-   ---------------------------------------------------------- */
-function initNavbar() {
-  const navbar = document.getElementById('navbar');
-  if (!navbar) return;
 
-  function updateNavbar() {
-    if (window.scrollY > 80) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
+/* ----------------------------------------------------------
+   Hero — subtle parallax on background
+   ---------------------------------------------------------- */
+function initHeroParallax() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var bg = document.querySelector('.hero-bg');
+  var grain = document.querySelector('.hero-grain');
+  if (!bg) return;
+
+  var ticking = false;
+  function update() {
+    var y = window.scrollY;
+    if (y > window.innerHeight) { ticking = false; return; }
+
+    bg.style.transform = 'translate3d(0, ' + (y * 0.18) + 'px, 0)';
+    if (grain) grain.style.transform = 'translate3d(0, ' + (y * 0.08) + 'px, 0)';
+    ticking = false;
   }
 
-  updateNavbar();
-  window.addEventListener('scroll', updateNavbar, { passive: true });
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
 }
+
 
 /* ----------------------------------------------------------
    FAQ accordion
    ---------------------------------------------------------- */
 function initFaq() {
-  const faqItems = document.querySelectorAll('.faq-item');
+  var items = document.querySelectorAll('.faq-item');
+  if (!items.length) return;
 
-  if (!faqItems.length) return;
+  items.forEach(function (item) {
+    var btn = item.querySelector('.faq-question');
+    var answer = item.querySelector('.faq-answer');
+    if (!btn || !answer) return;
 
-  faqItems.forEach(function (item) {
-    const button = item.querySelector('.faq-question');
-    const answer = item.querySelector('.faq-answer');
+    btn.addEventListener('click', function () {
+      var isOpen = item.classList.contains('open');
 
-    if (!button || !answer) return;
-
-    button.addEventListener('click', function () {
-      const isOpen = item.classList.contains('open');
-
-      // Zavři všechny ostatní
-      faqItems.forEach(function (otherItem) {
-        if (otherItem === item) return;
-        otherItem.classList.remove('open');
-        const otherAnswer = otherItem.querySelector('.faq-answer');
-        if (otherAnswer) {
-          otherAnswer.style.maxHeight = '0px';
-        }
+      // Zavři ostatní
+      items.forEach(function (other) {
+        if (other === item) return;
+        other.classList.remove('open');
+        var a = other.querySelector('.faq-answer');
+        if (a) a.style.maxHeight = '0px';
       });
 
       if (!isOpen) {
         item.classList.add('open');
-        // Změříme skutečnou výšku obsahu
         answer.style.maxHeight = 'none';
-        const fullHeight = answer.scrollHeight;
+        var h = answer.scrollHeight;
         answer.style.maxHeight = '0px';
-        // Requestem dalšího framu zajistíme plynulou animaci
         requestAnimationFrame(function () {
           requestAnimationFrame(function () {
-            answer.style.maxHeight = fullHeight + 'px';
+            answer.style.maxHeight = h + 'px';
           });
         });
       } else {
@@ -103,24 +196,47 @@ function initFaq() {
   });
 }
 
+
 /* ----------------------------------------------------------
    Form submit (demo)
    ---------------------------------------------------------- */
 function initForm() {
-  const form = document.getElementById('lead-form');
-  const btn = document.getElementById('form-submit-btn');
-
+  var form = document.getElementById('lead-form');
+  var btn = document.getElementById('form-submit-btn');
   if (!form || !btn) return;
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    if (btn.classList.contains('sent')) return;
 
-    btn.textContent = 'Odesíláme…';
+    btn.innerHTML = 'Odesíláme…';
     btn.disabled = true;
 
     setTimeout(function () {
-      btn.textContent = 'Poptávka odeslána. Ozveme se vám.';
+      btn.innerHTML = '✓ &nbsp; Poptávka odeslána. Ozveme se vám.';
       btn.classList.add('sent');
-    }, 1200);
+    }, 1100);
+  });
+}
+
+
+/* ----------------------------------------------------------
+   Smooth anchor scrolling with nav offset
+   ---------------------------------------------------------- */
+function initSmoothAnchors() {
+  var navH = 72;
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var href = a.getAttribute('href');
+      if (!href || href === '#' || href.length < 2) return;
+
+      var target = document.querySelector(href);
+      if (!target) return;
+
+      e.preventDefault();
+      var y = target.getBoundingClientRect().top + window.scrollY - navH + 1;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    });
   });
 }
