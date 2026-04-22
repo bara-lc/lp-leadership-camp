@@ -30,55 +30,157 @@
     <a href="#form" class="nav-cta">Nezávazně poptat místo</a>
   </nav>
 
-  <!-- HERO -->
+  <!-- ============================================================
+       HERO — split layout, editorial feel, animovaná pravá strana
+       
+       Struktura:
+       ┌─────────────────────────┬──────────────────────────┐
+       │  .hero-left             │  .hero-right             │
+       │  label + h1 + sub + CTA │  animovaná kompozice     │
+       │  (7 col)                │  (5 col)                 │
+       └─────────────────────────┴──────────────────────────┘
+       │  .hero-bar (full width, 4 parametry)               │
+       ============================================================ -->
   <section id="hero">
-    <div class="hero-texture"></div>
-    <div class="hero-grain"></div>
 
-    <!-- Dekorativní tečkový grid -->
-    <div class="hero-dots" aria-hidden="true">
-      <div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div>
-      <div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div>
-      <div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div>
-      <div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div>
-    </div>
+    <!-- Vrstvy pozadí -->
+    <div class="hero-bg-layer hero-bg-radial"  aria-hidden="true"></div>
+    <div class="hero-bg-layer hero-bg-grain"   aria-hidden="true"></div>
+    <div class="hero-bg-layer hero-bg-lines"   aria-hidden="true"></div>
 
-    <div class="hero-content">
-      <p class="hero-label">Legacy Club · Výběrový leadership program</p>
+    <!-- Hlavní grid -->
+    <div class="hero-grid">
 
-      <h1 class="hero-headline">
-        Nečekejte, až vaše budoucí lídry větší role zaskočí.<br><em>Připravte je včas.</em>
-      </h1>
+      <!-- LEVÁ strana — obsah -->
+      <div class="hero-left">
 
-      <p class="hero-sub">
-        Intenzivní rozvojový program pro mladé lídry, team leadery a talenty, kteří mají ve firmě růst do větší role.
-        Dva třídenní bloky, práce mezi nimi a konkrétní přenos do praxe.
-      </p>
+        <p class="hero-eyebrow">
+          <span class="hero-eyebrow-line"></span>
+          Legacy Club
+          <span class="hero-eyebrow-sep">·</span>
+          Výběrový program
+        </p>
 
-      <div class="hero-ctas">
-        <a href="#form" class="btn-primary">Nezávazně poptat místo</a>
-        <a href="#problem" class="btn-secondary">Zjistit, pro koho je program</a>
-      </div>
-    </div>
+        <!--
+          COPY — Ogilvy rewrite:
+          Originál: "Nečekejte, až vaše budoucí lídry větší role zaskočí. Připravte je včas."
+          Nový:     Kratší, napjatější, dvě vrstvy — otázka + odpověď jako vizuální kontrast
+        -->
+        <h1 class="hero-h1">
+          <span class="hero-h1-top">Budoucí lídr.</span>
+          <span class="hero-h1-mid">Připravený<br><em>dřív, než</em></span>
+          <span class="hero-h1-bot">ho role dostihne.</span>
+        </h1>
 
+        <p class="hero-sub">
+          Výběrový leadership program pro talenty a team leadery,<br>
+          kteří mají ve firmě růst. Šest dní v terénu. Výsledky v praxi.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#form" class="hero-cta-primary">
+            Poptat místo
+            <svg class="hero-cta-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#problem" class="hero-cta-ghost">
+            Pro koho je program
+          </a>
+        </div>
+
+        <!-- Social proof čísla -->
+        <div class="hero-proof">
+          <div class="hero-proof-item">
+            <span class="hero-proof-num">6</span>
+            <span class="hero-proof-label">dní intenzivní<br>práce v terénu</span>
+          </div>
+          <div class="hero-proof-divider"></div>
+          <div class="hero-proof-item">
+            <span class="hero-proof-num">12</span>
+            <span class="hero-proof-label">účastníků<br>maximum</span>
+          </div>
+          <div class="hero-proof-divider"></div>
+          <div class="hero-proof-item">
+            <span class="hero-proof-num">2</span>
+            <span class="hero-proof-label">pobytové bloky<br>na farmě</span>
+          </div>
+        </div>
+
+      </div><!-- /hero-left -->
+
+      <!-- PRAVÁ strana — vizuální kompozice -->
+      <div class="hero-right" aria-hidden="true">
+
+        <!-- Střední kruh s textem -->
+        <div class="hero-orb">
+          <div class="hero-orb-ring hero-orb-ring--1"></div>
+          <div class="hero-orb-ring hero-orb-ring--2"></div>
+          <div class="hero-orb-ring hero-orb-ring--3"></div>
+          <div class="hero-orb-core">
+            <svg class="hero-orb-leaf" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M60 155 C60 155 5 110 5 65 C5 35 30 10 60 10 C90 10 115 35 115 65 C115 110 60 155 60 155Z"
+                    stroke="rgba(184,208,178,0.22)" stroke-width="1" fill="none"/>
+              <path d="M60 140 C60 140 20 105 20 68 C20 43 38 22 60 22 C82 22 100 43 100 68 C100 105 60 140 60 140Z"
+                    stroke="rgba(184,208,178,0.14)" stroke-width="1" fill="none"/>
+              <circle cx="60" cy="68" r="18" stroke="rgba(184,144,106,0.3)" stroke-width="1" fill="none"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Plovoucí datové karty -->
+        <div class="hero-card hero-card--tl">
+          <span class="hero-card-label">Termín · Blok I</span>
+          <span class="hero-card-val">15.–17. 6. 2026</span>
+          <span class="hero-card-sub">Farma Hůrka, Písek</span>
+        </div>
+
+        <div class="hero-card hero-card--br">
+          <span class="hero-card-label">Investice</span>
+          <span class="hero-card-val">30 000 Kč</span>
+          <span class="hero-card-sub">bez DPH · vše v ceně</span>
+        </div>
+
+        <!-- Dekorativní čáry -->
+        <div class="hero-line hero-line--h"></div>
+        <div class="hero-line hero-line--v"></div>
+
+        <!-- Tečkový grid -->
+        <div class="hero-dotgrid">
+          <svg width="120" height="100" viewBox="0 0 120 100">
+            <defs>
+              <pattern id="dots" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="1.2" fill="rgba(184,208,178,0.18)"/>
+              </pattern>
+            </defs>
+            <rect width="120" height="100" fill="url(#dots)"/>
+          </svg>
+        </div>
+
+      </div><!-- /hero-right -->
+
+    </div><!-- /hero-grid -->
+
+    <!-- Spodní lišta s parametry -->
     <div class="hero-bar">
       <div class="hero-param">
-        <span class="hero-param-label">Termíny programu</span>
-        <span class="hero-param-value">15.–17. 6. · 14.–16. 9. 2026</span>
+        <span class="hero-param-label">Blok I</span>
+        <span class="hero-param-value">15.–17. června 2026</span>
+      </div>
+      <div class="hero-param">
+        <span class="hero-param-label">Blok II</span>
+        <span class="hero-param-value">14.–16. září 2026</span>
       </div>
       <div class="hero-param">
         <span class="hero-param-label">Kapacita</span>
         <span class="hero-param-value">Max. 12 účastníků</span>
       </div>
       <div class="hero-param">
-        <span class="hero-param-label">Investice</span>
-        <span class="hero-param-value">30 000 Kč bez DPH</span>
-      </div>
-      <div class="hero-param">
         <span class="hero-param-label">Místo konání</span>
         <span class="hero-param-value">Farma Hůrka, Písek</span>
       </div>
     </div>
+
   </section>
 
   <!-- PROBLEM -->
