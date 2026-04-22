@@ -9,7 +9,14 @@
   <meta name="description" content="Výběrový leadership program pro mladé lídry, team leadery a talenty, kteří mají ve firmě růst do větší role.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!--
+    ZMĚNA FONTŮ:
+    — DM Serif Display:  nahrazuje Cormorant Garamond
+      Moderní serif, přirozené česky-přátelské háčky, čistší kresba
+    — Plus Jakarta Sans: nahrazuje Outfit
+      Humanistický sans-serif, příjemnější na delší čtení, méně technický
+  -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -27,6 +34,14 @@
   <section id="hero">
     <div class="hero-texture"></div>
     <div class="hero-grain"></div>
+
+    <!-- Dekorativní tečkový grid -->
+    <div class="hero-dots" aria-hidden="true">
+      <div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div>
+      <div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div>
+      <div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div>
+      <div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div><div class="hero-dot"></div>
+    </div>
 
     <div class="hero-content">
       <p class="hero-label">Legacy Club · Výběrový leadership program</p>
@@ -121,6 +136,31 @@
     </div>
   </section>
 
+  <!-- EXPERIENCE — hlavní fotografie -->
+  <section id="experience">
+    <div class="experience-inner">
+
+      <div class="experience-image-wrap reveal">
+        <img
+          src="DSC00079.jpg"
+          alt="Účastnice programu při práci s koněm na Farmě Hůrka"
+          class="experience-img"
+          loading="lazy"
+        >
+      </div>
+
+      <div class="experience-text">
+        <p class="section-label reveal">Prostředí, které mění perspektivu</p>
+        <h2 class="experience-headline reveal">Program záměrně probíhá mimo kancelář.</h2>
+        <p class="experience-desc reveal">
+          Na Farmě Hůrka v Písku pracujete s reálnými situacemi, přímou zpětnou vazbou a prostředím, které neumožňuje skrýt se za rutinu. Šest dní v přírodě, v malé skupině a pod vedením zkušených facilitátorů — to je prostor, kde se leadershipové chování skutečně zažije, ne jen vyslechne.
+        </p>
+        <a href="#form" class="experience-cta reveal">Nezávazně poptat místo</a>
+      </div>
+
+    </div>
+  </section>
+
   <!-- CURRICULUM -->
   <section id="curriculum">
     <p class="section-label reveal">Co program rozvíjí</p>
@@ -207,6 +247,19 @@
     </div>
   </section>
 
+  <!-- PHOTO STRIP -->
+  <div class="photo-strip">
+    <div class="photo-strip-item">
+      <img src="DSC00031.jpg" alt="Skupinová práce a diskuse při leadership programu" loading="lazy">
+    </div>
+    <div class="photo-strip-item">
+      <img src="DSC00057.jpg" alt="Lektor při práci s účastníky na Farmě Hůrka" loading="lazy">
+    </div>
+    <div class="photo-strip-item">
+      <img src="DSC00088.jpg" alt="Účastníci při přímé zkušenosti s koňmi" loading="lazy">
+    </div>
+  </div>
+
   <!-- RESULTS -->
   <section id="results">
     <p class="section-label reveal">Co z toho firma získá</p>
@@ -246,6 +299,10 @@
         <p class="section-label reveal">Investice</p>
         <p class="pricing-price reveal">30 000 Kč</p>
         <p class="pricing-price-note reveal">bez DPH za účastníka</p>
+
+        <p class="pricing-value-line reveal">
+          6 dní programu&thinsp;·&thinsp;2 pobytové bloky&thinsp;·&thinsp;ubytování a stravování v ceně&thinsp;·&thinsp;individuální koučink&thinsp;·&thinsp;konference
+        </p>
 
         <p class="pricing-includes-label reveal">V ceně je zahrnuto</p>
         <ul class="pricing-includes-list reveal">
