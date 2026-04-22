@@ -23,35 +23,29 @@
 
   <!-- NAV -->
   <nav id="navbar">
-    <div class="nav-logo">
-      <div class="nav-logo-mark">LC</div>
-      Legacy Club
-    </div>
+    <a href="#hero" class="nav-logo">
+      <img
+        src="legacy-club_horizontal_gold-white.png"
+        alt="Legacy Club"
+        class="nav-logo-img"
+        height="28"
+      >
+    </a>
     <a href="#form" class="nav-cta">Nezávazně poptat místo</a>
   </nav>
 
   <!-- ============================================================
-       HERO — split layout, editorial feel, animovaná pravá strana
-       
-       Struktura:
-       ┌─────────────────────────┬──────────────────────────┐
-       │  .hero-left             │  .hero-right             │
-       │  label + h1 + sub + CTA │  animovaná kompozice     │
-       │  (7 col)                │  (5 col)                 │
-       └─────────────────────────┴──────────────────────────┘
-       │  .hero-bar (full width, 4 parametry)               │
+       HERO — split layout, editorial feel
        ============================================================ -->
   <section id="hero">
 
-    <!-- Vrstvy pozadí -->
     <div class="hero-bg-layer hero-bg-radial"  aria-hidden="true"></div>
     <div class="hero-bg-layer hero-bg-grain"   aria-hidden="true"></div>
     <div class="hero-bg-layer hero-bg-lines"   aria-hidden="true"></div>
 
-    <!-- Hlavní grid -->
     <div class="hero-grid">
 
-      <!-- LEVÁ strana — obsah -->
+      <!-- LEVÁ strana -->
       <div class="hero-left">
 
         <p class="hero-eyebrow">
@@ -61,20 +55,16 @@
           Výběrový program
         </p>
 
-        <!--
-          COPY — Ogilvy rewrite:
-          Originál: "Nečekejte, až vaše budoucí lídry větší role zaskočí. Připravte je včas."
-          Nový:     Kratší, napjatější, dvě vrstvy — otázka + odpověď jako vizuální kontrast
-        -->
         <h1 class="hero-h1">
           <span class="hero-h1-top">Budoucí lídr.</span>
           <span class="hero-h1-mid">Připravený<br><em>dřív, než</em></span>
+          <!-- Změna: sans light místo serif — odlehčuje vojenský pocit -->
           <span class="hero-h1-bot">ho role dostihne.</span>
         </h1>
 
         <p class="hero-sub">
-          Výběrový leadership program pro talenty a team leadery,<br>
-          kteří mají ve firmě růst. Šest dní v terénu. Výsledky v praxi.
+          Výběrový leadership program pro talenty a team leadery,
+          kteří mají ve firmě růst. Dva bloky 3+3 dny v terénu. Výsledky v praxi.
         </p>
 
         <div class="hero-actions">
@@ -89,11 +79,11 @@
           </a>
         </div>
 
-        <!-- Social proof čísla -->
+        <!-- Proof čísla — 3+3 místo 6 -->
         <div class="hero-proof">
           <div class="hero-proof-item">
-            <span class="hero-proof-num">6</span>
-            <span class="hero-proof-label">dní intenzivní<br>práce v terénu</span>
+            <span class="hero-proof-num">3<span class="hero-proof-plus">+</span>3</span>
+            <span class="hero-proof-label">dny ve dvou<br>blocích</span>
           </div>
           <div class="hero-proof-divider"></div>
           <div class="hero-proof-item">
@@ -102,58 +92,70 @@
           </div>
           <div class="hero-proof-divider"></div>
           <div class="hero-proof-item">
-            <span class="hero-proof-num">2</span>
-            <span class="hero-proof-label">pobytové bloky<br>na farmě</span>
+            <span class="hero-proof-num">1</span>
+            <span class="hero-proof-label">farma,<br>mimo kancelář</span>
           </div>
         </div>
 
       </div><!-- /hero-left -->
 
-      <!-- PRAVÁ strana — vizuální kompozice -->
+      <!-- PRAVÁ strana — moderní geometrická kompozice -->
       <div class="hero-right" aria-hidden="true">
 
-        <!-- Střední kruh s textem -->
-        <div class="hero-orb">
-          <div class="hero-orb-ring hero-orb-ring--1"></div>
-          <div class="hero-orb-ring hero-orb-ring--2"></div>
-          <div class="hero-orb-ring hero-orb-ring--3"></div>
-          <div class="hero-orb-core">
-            <svg class="hero-orb-leaf" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M60 155 C60 155 5 110 5 65 C5 35 30 10 60 10 C90 10 115 35 115 65 C115 110 60 155 60 155Z"
-                    stroke="rgba(184,208,178,0.22)" stroke-width="1" fill="none"/>
-              <path d="M60 140 C60 140 20 105 20 68 C20 43 38 22 60 22 C82 22 100 43 100 68 C100 105 60 140 60 140Z"
-                    stroke="rgba(184,208,178,0.14)" stroke-width="1" fill="none"/>
-              <circle cx="60" cy="68" r="18" stroke="rgba(184,144,106,0.3)" stroke-width="1" fill="none"/>
-            </svg>
-          </div>
+        <!--
+          Nová kompozice:
+          — Střed: logo symbol (LC infinity mark) jako dominanta
+          — Tenké zlaté linky místo organických kroužků
+          — Světlý panel s kontrastem (cream on dark)
+          — Čisté čtvercové karty místo blob shapes
+        -->
+
+        <!-- Středový logo panel — kontrast cream na forest -->
+        <div class="hero-visual-center">
+          <div class="hero-visual-bg"></div>
+          <!-- LC infinity symbol — SVG verze loga marku -->
+          <svg class="hero-visual-symbol" viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Dvě propojené C — evokuje logo mark -->
+            <path d="M42 30 C42 19 34 11 24 11 C14 11 6 19 6 30 C6 41 14 49 24 49 C31 49 37 45 40 39"
+                  stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <path d="M42 30 C42 41 50 49 60 49 C70 49 78 41 78 30 C78 19 70 11 60 11 C53 11 47 15 44 21"
+                  stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <path d="M62 30 C62 19 70 11 80 11 C90 11 98 19 98 30 C98 41 90 49 80 49 C73 49 67 45 64 39"
+                  stroke="rgba(201,168,76,0.35)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M62 30 C62 41 54 49 44 49 C34 49 26 41 26 30 C26 19 34 11 44 11 C51 11 57 15 60 21"
+                  stroke="rgba(201,168,76,0.35)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          </svg>
+          <span class="hero-visual-label">Legacy Club</span>
         </div>
 
-        <!-- Plovoucí datové karty -->
+        <!-- Tenké zlaté dekorativní linky — moderní, ne organické -->
+        <div class="hero-geo hero-geo--top-line"></div>
+        <div class="hero-geo hero-geo--right-line"></div>
+        <div class="hero-geo hero-geo--corner-tl"></div>
+        <div class="hero-geo hero-geo--corner-br"></div>
+
+        <!-- Plovoucí datová karta — terminový blok -->
         <div class="hero-card hero-card--tl">
-          <span class="hero-card-label">Termín · Blok I</span>
-          <span class="hero-card-val">15.–17. 6. 2026</span>
+          <span class="hero-card-label">Blok I · červen 2026</span>
+          <span class="hero-card-val">3 dny</span>
           <span class="hero-card-sub">Farma Hůrka, Písek</span>
         </div>
 
         <div class="hero-card hero-card--br">
-          <span class="hero-card-label">Investice</span>
-          <span class="hero-card-val">30 000 Kč</span>
-          <span class="hero-card-sub">bez DPH · vše v ceně</span>
+          <span class="hero-card-label">Blok II · září 2026</span>
+          <span class="hero-card-val">3 dny</span>
+          <span class="hero-card-sub">Návaznost v praxi</span>
         </div>
-
-        <!-- Dekorativní čáry -->
-        <div class="hero-line hero-line--h"></div>
-        <div class="hero-line hero-line--v"></div>
 
         <!-- Tečkový grid -->
         <div class="hero-dotgrid">
-          <svg width="120" height="100" viewBox="0 0 120 100">
+          <svg width="110" height="88" viewBox="0 0 110 88">
             <defs>
-              <pattern id="dots" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
-                <circle cx="2" cy="2" r="1.2" fill="rgba(184,208,178,0.18)"/>
+              <pattern id="dots" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="1" fill="rgba(201,168,76,0.2)"/>
               </pattern>
             </defs>
-            <rect width="120" height="100" fill="url(#dots)"/>
+            <rect width="110" height="88" fill="url(#dots)"/>
           </svg>
         </div>
 
@@ -161,7 +163,7 @@
 
     </div><!-- /hero-grid -->
 
-    <!-- Spodní lišta s parametry -->
+    <!-- Spodní lišta -->
     <div class="hero-bar">
       <div class="hero-param">
         <span class="hero-param-label">Blok I</span>
