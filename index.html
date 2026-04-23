@@ -1,7 +1,3 @@
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -336,8 +332,8 @@
   <section id="results">
     <div class="section-inner">
       <header class="section-header">
-        <p class="section-label reveal">Co z programu vzniká</p>
-        <h2 class="section-headline reveal">Ne další certifikát do šuplíku. Člověk, o kterého se můžete opřít víc než dnes.</h2>
+        <p class="section-label reveal">Co vám Leadership s přesahem přinese</p>
+        <h2 class="section-headline reveal">Člověk, který nese odpovědnost — a nečeká, až ji převezme někdo jiný.</h2>
       </header>
 
       <div class="results-grid">
@@ -533,7 +529,7 @@
         <p class="section-label reveal">Nezávazná poptávka</p>
         <h2 class="form-headline reveal">Zjistěte, jestli je program vhodný pro vašeho člověka.</h2>
         <p class="form-desc reveal">
-          Po odeslání formuláře se vám ozveme a domluvíme krátký vstupní hovor. Projdeme vaši situaci, profil účastníka i to, jestli program dává smysl právě teď.
+          Po odeslání formuláře se vám ozveme a domluvíme krátký vstupní hovor. Projdeme vaši situaci a řekneme si na rovinu, jestli pro vás náš program dává smysl.
         </p>
         <p class="form-desc form-desc--muted reveal">
           Odesláním formuláře nevzniká závazná objednávka. Kapacita programu je omezená na 12 účastníků.
@@ -546,32 +542,43 @@
           </div>
           <div>
             <dt>Telefon</dt>
-            <dd><a href="tel:+420000000000">+420&nbsp;000&nbsp;000&nbsp;000</a></dd>
+            <dd><a href="tel:+420602293221">+420&nbsp;000&nbsp;000&nbsp;000</a></dd>
           </div>
         </dl>
       </div>
 
       <div class="form-right reveal">
         <form id="lead-form" novalidate>
+
+          <!-- Web3Forms — konfigurace -->
+          <input type="hidden" name="access_key" value="26669e8a-d0f0-40aa-8c3e-9d32bb8b2856">
+          <input type="hidden" name="subject" value="Nová poptávka — Legacy Club (Leadership s přesahem)">
+          <input type="hidden" name="from_name" value="Legacy Club — web formulář">
+          <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
+
           <div class="form-row">
             <div class="form-field">
               <label class="form-label" for="name">Jméno a příjmení</label>
-              <input id="name" name="name" type="text" class="form-input" placeholder="Vaše jméno" required>
+              <input id="name" name="name" type="text" class="form-input" placeholder="Vaše jméno" autocomplete="name" required>
+              <p class="form-error" data-error-for="name"></p>
             </div>
             <div class="form-field">
               <label class="form-label" for="company">Firma</label>
-              <input id="company" name="company" type="text" class="form-input" placeholder="Název firmy" required>
+              <input id="company" name="company" type="text" class="form-input" placeholder="Název firmy" autocomplete="organization" required>
+              <p class="form-error" data-error-for="company"></p>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-field">
               <label class="form-label" for="email">Pracovní e-mail</label>
-              <input id="email" name="email" type="email" class="form-input" placeholder="vas@firma.cz" required>
+              <input id="email" name="email" type="email" class="form-input" placeholder="vas@firma.cz" autocomplete="email" required>
+              <p class="form-error" data-error-for="email"></p>
             </div>
             <div class="form-field">
               <label class="form-label" for="phone">Telefon</label>
-              <input id="phone" name="phone" type="tel" class="form-input" placeholder="+420 000 000 000">
+              <input id="phone" name="phone" type="tel" class="form-input" placeholder="+420 000 000 000" autocomplete="tel">
+              <p class="form-error" data-error-for="phone"></p>
             </div>
           </div>
 
@@ -580,11 +587,12 @@
             <div class="select-wrap">
               <select id="interest" name="interest" class="form-input" required>
                 <option value="" disabled selected>Vyberte možnost</option>
-                <option>Přihlašuji sebe</option>
-                <option>Přihlašuji kolegu / zaměstnance</option>
-                <option>Zatím jen zjišťuji informace</option>
+                <option value="Přihlašuji sebe">Přihlašuji sebe</option>
+                <option value="Přihlašuji kolegu / zaměstnance">Přihlašuji kolegu / zaměstnance</option>
+                <option value="Zatím jen zjišťuji informace">Zatím jen zjišťuji informace</option>
               </select>
             </div>
+            <p class="form-error" data-error-for="interest"></p>
           </div>
 
           <div class="form-field">
@@ -594,7 +602,7 @@
 
           <div class="form-consent">
             <label class="consent-label" for="consent">
-              <input id="consent" name="consent" type="checkbox" class="consent-checkbox" required>
+              <input id="consent" name="consent" type="checkbox" class="consent-checkbox" value="Souhlasím se zpracováním osobních údajů" required>
               <span class="consent-box" aria-hidden="true"></span>
               <span class="consent-text">
                 Souhlasím se zpracováním osobních údajů za účelem kontaktování ve věci členství v Legacy Clubu.
@@ -607,11 +615,20 @@
           </div>
 
           <button type="submit" class="btn-primary btn-primary--full" id="form-submit-btn">
-            Odeslat poptávku
+            <span class="btn-label">Odeslat poptávku</span>
             <svg class="btn-arrow" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
               <path d="M3 9h11M10 4l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
+
+          <!-- Success / Error zprávy -->
+          <div
+            id="form-feedback"
+            class="form-feedback"
+            role="status"
+            aria-live="polite"
+            hidden
+          ></div>
 
           <p class="form-note">Do 24 hodin vás budeme kontaktovat.</p>
           <p class="form-note form-note--privacy">
